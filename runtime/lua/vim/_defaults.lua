@@ -403,6 +403,14 @@ do
       return 'g@l'
     end, { expr = true, desc = 'Add empty line below cursor' })
   end
+
+  vim.api.nvim_create_autocmd({ "BufModifiedSet", "BufNew" }, {
+    callback = function ()
+      if vim.bo.buftype == 'prompt' then
+        vim.keymap.set("i", '<CR>', vim.prompt_send, { buffer = true })
+      end
+    end
+  })
 end
 
 --- Default menus

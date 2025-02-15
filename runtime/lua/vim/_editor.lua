@@ -1350,6 +1350,10 @@ end
 
 require('vim._options')
 
+function vim.prompt_send()
+  print("prompt called")
+end
+
 -- Remove at Nvim 1.0
 ---@deprecated
 vim.loop = vim.uv
@@ -1358,3 +1362,4 @@ vim.loop = vim.uv
 vim.highlight = vim._defer_deprecated_module('vim.highlight', 'vim.hl')
 
 return vim
+
